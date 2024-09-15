@@ -1,38 +1,1004 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+*{
+    font-family: "Raleway", sans-serif;
+}
+/*/////////// NOTIFICATION BAR COMPONENT /////////////////*/
+.notification_bar{
+   height: 6vh;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background-color: black;
+
+   z-index: 2000;
+   position: relative;
+}
+.notification_link{
+    font-weight: 300;
+    font-size: 0.92rem;
+    color: white;
+    letter-spacing: 1px;
+}
+#popoverImage{
+    height: 2.2vh;
+    margin-left: 10px;
+}
+#popoverImage{
+    cursor: pointer;
+}
+/* /// Bootstrap Custom Class /// */
+.popover-class{
+    border-radius: none;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+
+    z-index: 2000;
+}
+.popover-class .popover-body {
+     font-family: sans-serif;
+     letter-spacing: 1px;
+     padding: 0 10px 0 10px;
+     color: rgb(138, 136, 136);
+}
+.popover_link{
+    color: rgb(128, 128, 226);
+}
+.popover_link:hover{
+    color: rgb(16, 16, 245);
+}
+/*///////////////////  SIGN UP BAR COMPONENT  ////////////////*/
+.signup_bar{
+    width: 100vw;
+    height: 9.5vh;
+    display: flex;
+    background-color: white;
+    justify-content: space-around;
+    border-bottom: solid rgb(223, 217, 217) 1px;
+}
+.gelato_icon_box{
+    width: 10vw;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.gelato_icon_box img{
+    width: 100%;
+}
+.buttons_box{
+    width: 50vw;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.button{
+    height: 60%;
+    border-radius: 1.3rem;
+    font-size: 0.92rem;
+    font-weight: 600;
+    padding: 0 2% 0 2%;
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+}
+.button:hover{
+    background-color: rgba(224, 216, 216, 0.699);
+}
+.button img{
+    height: 70%;
+}
+.signup_btn{
+    background-color: black;
+    font-size: 0.9rem;
+    font-weight: 600;
+    height: 65%;
+    border-radius: 2rem;
+    margin-left: 0.5rem;
+    color: white;
+}
+.signup_btn:hover{
+    background-color: black;
+    color: rgb(180, 174, 174);
+}
+.btn-secondary{
+    color: black;
+}
+.btn-secondary:hover{
+    color: black;
+}
+#popover-signupbar:focus{
+    color: black;
+}
+/* ///// Bootstrap Custom Class ///// */
+.signupbar_popover .popover-body{
+    padding: 0;
+    font-weight: 600;
+    padding: 0.6rem;
+}
+.signupbar_popover{
+    position: relative;
+    z-index: 4000;
+    border: 0;
+}
+.language_box{
+    height: 2rem;
+    padding: 6px;
+}
+.language_box:hover{
+    cursor: pointer;
+    background-color: rgba(224, 218, 218, 0.459);
+}
+/* ////////////////////////////////////  MENU BAR COMPONENT  ///////////////////////////////////////// */
+.navbar_component{
+    padding: 0;
+    height: 8vh;
+    width: 100vw;
+    border-bottom: solid rgb(223, 217, 217) 1px;
+    padding-left: 9vw;
+    display: flex;
+    background-color: white;
+}
+.menu_btn{
+    height: 8vh;
+    border-radius: 0;
+    font-size: 0.92rem;
+    font-weight: 600;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.menu_btn img {
+    margin-left: 1rem;
+    transition: transform 0.3s; /* Apply transition to the default state */
+}
+.menu_btn:hover{
+    background-color: rgba(233, 227, 227, 0.445);
+}
+/* .menu_btn:hover img {
+    transform: rotate(180deg);
+    transition-delay: 0.5s;
+} */
+
+.img_rotate_class{
+    transform: rotate(180deg);
+    transition-delay: 0.5s;
+}
+.dropdown-menu{
+    border-radius: 0;
+    margin-top: 0 !important;
+    border: 0;
+    padding: 1rem;
+}
+.menu_text_box{
+    height: 75%;
+    padding-top: 4% !important;
+    display: flex;
+    align-items: center;
+}
+.menu_arrow_box{
+    width: 100%;
+    height: 25%;
+}
+.triangle{
+    margin: auto;
+    width: 0;
+    height: 0;
+    border-left: 14px solid transparent;
+    border-right: 14px solid transparent;
+}
+.menu_btn:focus{
+    border: none;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Intially hide the triangle */
+.triangle{
+    display: none;
+    opacity: 0;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* Show triangle on hover */
+.dropdown:hover .triangle{
+    display: block;
+    border-bottom: 20px solid white; /* Change the color as needed */
+    animation: showDropdown 0s 0.5s forwards;
+}
+/* Initially hide the dropdown */
+.dropdown-menu {
+    display: none;
+    opacity: 0;
+    width: 20vw;
   }
+  /* Show dropdown on hover */
+.dropdown:hover .dropdown-menu {
+    display: block;
+    animation: showDropdown 0s 0.5s forwards;
+}
+  
+/* Keyframe to delay opacity change */
+ @keyframes showDropdown {
+    to {
+      opacity: 1;
+    }
+ }
+.dropdown-menu button{
+    height: 8vh;
+    font-size: 0.92rem;
+    font-weight: 600;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.dropdown-menu button:hover{
+    background-color: rgba(221, 213, 213, 0.527);
+}
+/* ///////////////////////////////  HERO SECTION  ////////////////////////////// */
+/* /////// FIRST COMPONENT  /////////// */
+.first_hero_component{
+    height: 115vh;
+    display: flex;
+}
+.first_hero_text_box{
+    width: 50%;
+}
+.first_hero_text_container{
+    height: 100%;
+    width: 80%;
+    margin-left: auto;
+    padding: 15% 7% 7% 7%;
+}
+.first_hero_text_container h1{
+    font-size: 8vh;
+    font-weight: 700;
+}
+.signup_free_text{
+    margin-top: 1rem;
+    font-size: 1.44rem;
+    font-weight: 600;
+}
+.turn_your_passion_text a{
+    color: black;
+}
+.first_hero_buttons_box{
+    margin-top: 5vh;
+}
+.first_hero_btn{
+    height: 5.5vh;
+    width: 12vw;
+    margin: 0;
+}
+.second_button{
+    background-color: white;
+    color: black;
+    border: solid rgb(179, 172, 172) 1px;
+    margin-left: 1.5vw;
+    transition: 0.3s;
+}
+.second_button:hover{
+    background-color: rgba(173, 169, 169, 0.5);
+    color: black;
+}
+.first_button{
+    background-color: rgba(0, 0, 0, 0.842);
+}
+.shopify_container{
+    width: 100%;
+    height: 17%;
+    margin-top: 5vh;
+}
+.shopify_img_box img{
+    height: 6.5vh;
+}
+.star_img_box img{
+    height: 3vh;
+    margin-right: 0.2vw;
+}
+.star_img_box{
+    display: flex;
+    align-items: flex-end;
+}
+.star_img_box span{
+    margin-left: 0.8rem;
+}
+.shopify_container p{
+    margin-top: 1vh;
+}
+.first_hero_image{
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
+.first_hero_image_box img{
+    height: 72vh;
+}
+/* ////// SECOND COMPONENT  /////// */
+.second_hero_component{
+    height: 30vh;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #faf6ef
+}
+.second_hero_text_box{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.second_hero_text_box p:first-child{
+    margin-bottom: 0;
+}
+.second_hero_text_box p:last-child{
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+}
+.num{
+    font-size: 7vh;
+    font-weight: 500;
+}
+/* ///////// THIRD COMPONENT ///////// */
+.third_hero_component{
+    height: 90vh;
+    display: flex;
+}
+.third_hero_gif{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-top: 5%;
+}
+.third_hero_text_box{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3vw;
+}
+.third_hero_gif_box img{
+    height: 80vh;
+}
+.third_hero_text_box p:first-child{
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0;
+}
+.third_hero_text_box h1{
+    font-size: 9vh;
+    font-weight: 700;
+}
+.third_hero_btn{
+    margin-top: 4vh;
+    background-color: rgba(0, 0, 0, 0.842);
+    width: 8vw;
+}
+/* ////////////////////////////////  FOOTER COMPONENT  /////////////////////////// */
+.footer_component{
+    height: 90vh;
+    background-color: black;
+    color: white;
+    padding: 8vh 10vw 8vh 10vw;
+}
+.social_media_bar{
+    height: 10%;
+    display: flex;
+    justify-content: space-between;
+}
+.gelato_white_logo{
+    height: 80%;
+}
+.social_icons{
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.social_icons p{
+    margin-bottom: 0;
+}
+.social_icons div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80%;
+    width: 10%;
+    border-radius: 50%;
+
+    &:hover{
+        background-color: rgba(255, 255, 255, 0.158);
+    }
+}
+.social_icons div img{
+    height: 3.5vh;
+
+    &:hover{
+        cursor: pointer;
+    }
+}
+.footer_content_box{
+    padding-top: 2%;
+    height: 85%;
+    display: flex;
+}
+.content_box_1 p:first-child{
+    font-size: 0.8rem;
+}
+.footer_btn{
+    background-color: white;
+    font-size: 0.9rem;
+    font-weight: 700;
+    border-radius: 2rem;
+
+    &:hover{
+        background-color: rgb(197, 190, 190);
+        color: black;
+    }
+}
+.playstore_box{
+    margin-top: 15%;
+}
+.playstore_box p{
+    font-size: 1rem !important;
+    margin-bottom: 2%;
+}
+.playstore_image img{
+    height: 6vh;
+    margin-right: 2%;
+}
+.playstore_image img:hover{
+    cursor: pointer;
+}
+.footer_task_bar{
+    height: 10%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+.content_box_1{
+    width: 30%;
+}
+.content_box_2{
+    width: 20%;
+    padding-left: 3%;
+}
+.content_box_3{
+    width: 13%;
+}
+.content_box_4{
+    width: 20%;
+}
+.content_box_5{
+    width: 15%;
+}
+.text_header{
+    font-size: 1rem !important;
+    margin-bottom: 2.5vh !important;
+}
+.footer_text_box p{
+    margin-bottom: 0;
+    font-size: 0.8rem;
+}
+.footer_text_box p:not(:first-of-type){
+    cursor: pointer;
+
+    &:hover{
+        color: rgb(211, 204, 204);
+    }
+}
+.task_links{
+    width: 70%;
+    height: 50%;
+    font-size: 0.8rem;
+    display: flex;
+}
+.task_links p:hover{
+    cursor: pointer;
+    color: rgb(190, 186, 186);
+}
+.task_links p:first-child{
+    margin-right: 1%;
+}
+.task_links p:not(:first-of-type){
+    margin: 0 1% 0 1%;
+}
+select{
+    height: 80%;
+    font-size: 0.95rem;
+    background-color: black;
+    color: white;
+    border: solid white 2px;
+}
+/* //////////////  OVERLAY  /////////////// */
+.overlay_window_2{
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.212);
+    pointer-events: none;
+
+    display: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.position_fixed{
+    position: sticky;
+    top: 0;
+    z-index: 2000;
 }
 
-.App-link {
-  color: #61dafb;
+.overlay_window_1{
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.212);
+    pointer-events: none;
+
+    display: none;
+}
+.overlay_zindex{
+    z-index: 3000;
+    display: block;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* ///////////////////////////////   MEDIA QUERIES   /////////////////////////////////////// */
+@media (max-width: 475px){
+    .notification_link {
+        font-size: 0.5rem;
+    }
+    .signup_bar {
+        height: 3.5vh;
+    }
+    .buttons_box{
+        width: 60vw;
+    }
+    .buttons_box .button{
+        font-size: 0.4rem;
+        height: 35%;
+    }
+    .signup_btn{
+        font-size: 0.3rem !important;
+        height: 50% !important;
+    }
+    .navbar_component{
+        height: 3vh;
+        padding-left: 4vw;
+    }
+    .menu_btn{
+        font-size: 0.5rem;
+        height: 2vh;
+    }
+    .menu_btn img{
+        height: 0.5rem;
+    }
+    .menu_text_box{
+        padding-bottom: 2rem;
+        padding-top: 0 !important;
+    }
+    .first_hero_component{
+        height: 27vh;
+    }
+    .first_hero_text_container h1 {
+        font-size: 2vh;
+    }
+    .signup_free_text {
+        margin-top: 0.5rem;
+        font-size: 0.6rem;
+        font-weight: 500;
+        margin-bottom: 0.2rem;
+    }
+    .turn_your_passion_text{
+        font-size: 0.4rem;
+        margin-top: 0;
+        margin-bottom: 0.1rem;
+    }
+    .first_hero_btn{
+        display: none;
+    }
+    .shopify_container{
+        display: none;
+    }
+    .first_hero_image_box img {
+        height: 15vh;
+    }
+    .second_hero_component{
+        height: 8vh;
+    }
+    .second_hero_text_box p:last-child {
+        font-size: 0.4rem;
+        font-weight: 500;
+        margin-bottom: 0;
+    }
+    .num{
+        font-size: 0.5rem;
+    }
+    .third_hero_component{
+        height: 30vh;
+    }
+    .third_hero_gif_box img {
+        height: 20vh;
+    }
+    .third_hero_text_box h1 {
+        font-size: 3vh;
+        font-weight: 600;
+    }
+    h4{
+        font-size: 0.5rem;
+    }
+    .footer_component{
+        height: 10vh;
+        padding: 0;
+        padding-top: 1vh;
+    }
+    .footer_content_box{
+        display: none;
+    }
+    .social_media_bar{
+        height: 5vh;
+        width: 100vw;
+    }
+    .social_icons{
+        width: 30vw;
+        font-size: 0.4rem;
+    }
+    .social_icons div img{
+        height: 0.5rem;
+    }
+    .footer_task_bar{
+        height: 2vh;
+    }
+    .task_links{
+        font-size: 0.3rem;
+    }
+    select{
+        display: none;
+    }
+    .dropdown-menu{
+        width: 10vw;
+        padding: 0.1rem;
+    }
+    .dropdown-menu li{
+        padding: 0;
+    }
+    .dropdown-menu li button{
+        width: 10vw;
+        font-size: 0.3rem;
+    }
+    .dropdown-menu li button img{
+        height: 0.3rem;
+    }
+    .fixed_contact_button{
+        display: none;
+    }
+}
+
+@media (min-width: 476px) and (max-width: 700px){
+    .notification_link {
+        font-size: 0.5rem;
+    }
+    .signup_bar {
+        height: 3.5vh;
+    }
+    .buttons_box{
+        width: 60vw;
+    }
+    .buttons_box .button{
+        font-size: 0.4rem;
+        height: 35%;
+    }
+    .signup_btn{
+        font-size: 0.3rem !important;
+        height: 50% !important;
+    }
+    .navbar_component{
+        height: 3vh;
+        padding-left: 4vw;
+    }
+    .menu_btn{
+        font-size: 0.5rem;
+        height: 2vh;
+    }
+    .menu_btn img{
+        height: 0.5rem;
+    }
+    .menu_text_box{
+        padding-bottom: 2rem;
+        padding-top: 0 !important;
+    }
+    .first_hero_component{
+        height: 27vh;
+    }
+    .first_hero_text_container h1 {
+        font-size: 2vh;
+    }
+    .signup_free_text {
+        margin-top: 0.5rem;
+        font-size: 0.6rem;
+        font-weight: 500;
+        margin-bottom: 0.2rem;
+    }
+    .turn_your_passion_text{
+        font-size: 0.4rem;
+        margin-top: 0;
+        margin-bottom: 0.1rem;
+    }
+    .first_hero_btn{
+        display: none;
+    }
+    .shopify_container{
+        display: none;
+    }
+    .first_hero_image_box img {
+        height: 15vh;
+    }
+    .second_hero_component{
+        height: 8vh;
+    }
+    .second_hero_text_box p:last-child {
+        font-size: 0.4rem;
+        font-weight: 500;
+        margin-bottom: 0;
+    }
+    .num{
+        font-size: 0.5rem;
+    }
+    .third_hero_component{
+        height: 30vh;
+    }
+    .third_hero_gif {
+        width: 40%;
+    }
+    .third_hero_gif_box img {
+        height: 20vh;
+    }
+    .third_hero_text_box h1 {
+        font-size: 3vh;
+        font-weight: 600;
+    }
+    h4{
+        font-size: 0.5rem;
+    }
+    .footer_component{
+        height: 10vh;
+        padding: 0;
+        padding-top: 1vh;
+    }
+    .footer_content_box{
+        display: none;
+    }
+    .social_media_bar{
+        height: 5vh;
+        width: 100vw;
+    }
+    .social_icons{
+        width: 30vw;
+        font-size: 0.4rem;
+    }
+    .social_icons div img{
+        height: 0.5rem;
+    }
+    .footer_task_bar{
+        height: 2vh;
+    }
+    .task_links{
+        font-size: 0.3rem;
+    }
+    select{
+        display: none;
+    }
+    .dropdown-menu{
+        width: 10vw;
+        padding: 0.1rem;
+    }
+    .dropdown-menu li{
+        padding: 0;
+    }
+    .dropdown-menu li button{
+        width: 10vw;
+        font-size: 0.3rem;
+    }
+    .dropdown-menu li button img{
+        height: 0.3rem;
+    }
+    .fixed_contact_button{
+        display: none;
+    }
+}
+
+@media (min-width: 701px) and (max-width: 850px){
+    .notification_link {
+        font-size: 0.5rem;
+    }
+    .signup_bar {
+        height: 3.5vh;
+    }
+    .buttons_box{
+        width: 60vw;
+    }
+    .buttons_box .button{
+        font-size: 0.4rem;
+        height: 35%;
+    }
+    .signup_btn{
+        font-size: 0.3rem !important;
+        height: 50% !important;
+    }
+    .navbar_component{
+        height: 3vh;
+        padding-left: 4vw;
+    }
+    .menu_btn{
+        font-size: 0.5rem;
+        height: 2vh;
+    }
+    .menu_btn img{
+        height: 0.5rem;
+    }
+    .menu_text_box{
+        padding-bottom: 2rem;
+        padding-top: 0 !important;
+    }
+    .first_hero_component{
+        height: 27vh;
+    }
+    .first_hero_text_container h1 {
+        font-size: 2vh;
+    }
+    .signup_free_text {
+        margin-top: 0.5rem;
+        font-size: 0.6rem;
+        font-weight: 500;
+        margin-bottom: 0.2rem;
+    }
+    .turn_your_passion_text{
+        font-size: 0.4rem;
+        margin-top: 0;
+        margin-bottom: 0.1rem;
+    }
+    .first_hero_btn{
+        display: none;
+    }
+    .shopify_container{
+        display: none;
+    }
+    .first_hero_image_box img {
+        height: 20vh;
+    }
+    .second_hero_component{
+        height: 13vh;
+    }
+    .second_hero_text_box p:last-child {
+        font-size: 0.7rem;
+        font-weight: 500;
+        margin-bottom: 0;
+    }
+    .num{
+        font-size: 0.8rem;
+    }
+    .third_hero_component{
+        height: 35vh;
+    }
+    .third_hero_gif {
+        width: 40%;
+    }
+    .third_hero_gif_box img {
+        height: 25vh;
+    }
+    .third_hero_text_box h1 {
+        font-size: 3vh;
+        font-weight: 600;
+    }
+    h4{
+        font-size: 0.5rem;
+    }
+    .footer_component{
+        height: 10vh;
+        padding: 0;
+        padding-top: 1vh;
+    }
+    .footer_content_box{
+        display: none;
+    }
+    .social_media_bar{
+        height: 5vh;
+        width: 100vw;
+    }
+    .social_icons{
+        width: 30vw;
+        font-size: 0.4rem;
+    }
+    .social_icons div img{
+        height: 0.5rem;
+    }
+    .footer_task_bar{
+        height: 2vh;
+    }
+    .task_links{
+        font-size: 0.3rem;
+    }
+    select{
+        display: none;
+    }
+    .dropdown-menu{
+        width: 10vw;
+        padding: 0.1rem;
+    }
+    .dropdown-menu li{
+        padding: 0;
+    }
+    .dropdown-menu li button{
+        width: 10vw;
+        font-size: 0.3rem;
+    }
+    .dropdown-menu li button img{
+        height: 0.3rem;
+    }
+    .fixed_contact_button{
+        display: none;
+    }
+}
+
+@media (min-width: 851px) and (max-width: 1000px){
+    .first_hero_image_box img {
+        height: 50vh;
+    }
+    .first_hero_text_container h1 {
+        font-size: 7vh;
+    }
+    .first_hero_btn {
+        height: 8.5vh;
+        width: 13vw;
+    }
+    .third_hero_gif_box img {
+        height: 58vh;
+    }
+    .third_hero_text_box h1 {
+        font-size: 8vh;
+        font-weight: 600;
+    }
+    .button{
+        font-size: 0.55rem;
+    }
+}
+@media (min-width: 1001px) and (max-width: 1200px){
+    .first_hero_image_box img {
+        height: 60vh;
+    }
+    .first_hero_text_container h1 {
+        font-size: 7vh;
+    }
+    .first_hero_btn {
+        height: 8.5vh;
+        width: 13vw;
+    }
+    .third_hero_gif_box img {
+        height: 65vh;
+    }
+    .third_hero_text_box h1 {
+        font-size: 8vh;
+        font-weight: 600;
+    }
+    .button{
+        font-size: 0.8rem;
+    }
+}
+/* ////////////////////////////////////////////////////////////////////////////////////////////////// */
+.fixed_contact_button{
+    height: 6vh;
+    position: fixed;
+    font-weight: 700;
+    background-color: rgb(43, 41, 41);
+    color: white;
+    top: 90%;
+    left: 85%;
+}
+.fixed_contact_button img{
+    height: 70%;
+}
+.fixed_contact_button:hover{
+    background-color: rgb(43, 41, 41);
+    color: rgb(165, 161, 161);
+    cursor: pointer;
 }
